@@ -38,6 +38,7 @@ p {
   margin: 15px 0 20px 0;
 }
 
+/* standardisation of padding for sections*/
 .section-p1 {
   padding: 40px 80px;
 }
@@ -69,6 +70,10 @@ a {
 	padding: 20px 80px;
 	background: #E3E6F3;
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+	z-index: 999; 
+	position: sticky;
+	top: 0;
+	left: 0;
 }
 
 #navBar {
@@ -112,8 +117,94 @@ a {
 } 
 
 /* Home Page */
+#hero{
+	background-image: url("../images/hero4.png");
+	height: 90vh;
+	width: 100%; 
+	background-size: cover;
+	background-position: top 25% right 0;
+	padding: 0 80px;
+	/* tekst on the right adjustments*/
+	display: flex;
+	flex-direction: column;
+	align-items flex-start;:
+	justify-content: center; 
+}
+
+#hero h4{
+	padding-bottom: 15px;
+	
+}
+
+#hero h1{
+	color: #088178; 
+	
+}
+
+
+#hero button{
+	background-image: url("../images/button2.png");
+	background-color: transparent;
+	color: #088178;
+	border: 0;
+	padding: 14px 80px 14px 65;
+	background-repeat: no-repeat;
+	cursor: pointer;
+	font-weight: 700;
+	font-size: 15px;
+}
 
 /* Diagram */
+
+#diagram {
+	display: flex;
+	align-items; center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+}
+
+#diagram .fe-box {
+	/* width from 180 px --> small picture to click on*/
+	width: 180px;
+	text-align: center;
+	padding: 25px 15px;
+	box-shadow: 20px 20px 34px rbga(0, 0, 0, 0.03);
+	border: 1px solid #088178;
+	border-radius: 4px; 
+	margin: 15px 0;
+}
+
+#diagram .fe-box:hover{
+	box-shadow: 10px 10px 54px rbga(70, 62, 221, 0.1);
+} 
+
+#diagram .fe-box img{
+	width: 100%;
+	margin-bottom: 10px; 
+}
+
+#diagram .fe-box h6{
+	/* teveel ruimte met kleur links en rechts, daarom inline block.*/
+	display: inline-block;
+	padding: 9px 8px 6px 8px;
+	line-height: 1;
+	border-radius: 4px;
+	color: 088178;
+	background-color: #fddde4;
+	}
+	
+	/* verschillende background colours voor de tekst*/
+	#diagram .fe-box:nth-child(2) h6{
+	background-color: #cce7d0;
+	}
+	
+	#diagram .fe-box:nth-child(3) h6{
+	background-color: #cdd4f8;
+	}
+	
+	#diagram .fe-box:nth-child(4) h6{
+	background-color: #d1e8f2;
+	}
 
 /* Code */
 

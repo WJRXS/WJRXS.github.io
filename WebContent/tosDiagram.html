@@ -1,42 +1,65 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
 <head>
-<meta charset="ISO-8859-1">
-<title>TOS diagrams</title>
-<link href="./resources/css/tos_diagram.css" type="text/css" rel="stylesheet">
-<style type="text/css">
- .container:onaction1 {
-	width: 542px;
-	height: 550px;
-	background-image: url("./resources/images/tos/d1.png");
-}
 
-.container:onaction2 {
-	width: 542px;
-	height: 550px;
-	background-image: url("./resources/images/tos/d2.png");
-}
-.container:onaction3 {
-	width: 542px;
-	height: 550px;
-	background-image: url("./resources/images/tos/d3.png");
-}
-.container:onaction4 {
-	width: 542px;
-	height: 550px;
-	background-image: url("./resources/images/tos/d4.png");
-}
-.container:onaction5 {
-	width: 542px;
-	height: 550px;
-	background-image: url("./resources/images/tos/d5.png");
-}
-
-</style>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="vieuwport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio Wietse</title>
+<link rel="stylesheet" href="./resources/css/index.css" >
+<link rel="stylesheet" href="./resources/fontAwesome/css/font-awesome.min.css"> 
 </head>
+
+
 <body>
-<div></div>
 
+	<section id="header">
 
+		<a href="#"><img src="./resources/images/portrait_paint5.png"
+			class="portraitlogo" alt=""></a>
+	
+		<div>
+			<ul id="navBar">
+				<li><a href="index.html">Home</a></li>
+				<li><a class="active" href="tosDiagram.html">Project Diagrams</a></li>
+				<li><a href="tosJavaCode.html">Java Code</a></li>
+				<li><a href="gui.html"><i
+						class="fa fa-exclamation-triangle" aria-hidden="true"></i></a></li>
+				<li><a href="about.html">About</a></li>
+				<li><a href="contact.html">Contact</a></li>
+			</ul>
+		</div>
+	</section>
+
+	<section id="hero">
+		<h2>TOS is an application</h2>
+		<h1>used by Tennis players 
+		<h1>to a enjoy a tournament</h1>
+	</section>
+	
+	<section id="diagram" class="section-p1">
+		<div class="fe-box">
+		<img src ="./resources/images/tos/diagram1.png" alt="">
+		<h6>Conceptual Object Model</h6>
+		</div>
+		
+		<div class="fe-box">
+		<img src ="./resources/images/tos/diagram2.png" alt="">
+		<h6>UseCase Club Agenda</h6>
+		</div>
+		
+		<div class="fe-box">
+		<img src ="./resources/images/tos/diagram3.png" alt="">
+		<h6>UseCase User</h6>
+		</div>
+		
+		<div class="fe-box">
+		<img src ="./resources/images/tos/diagram4.png" alt="">
+		<h6>UseCase Event</h6>
+		</div>
+	</section>
+
+	<script src="./script/script.js"></script>
 </body>
 </html>

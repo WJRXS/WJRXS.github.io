@@ -302,8 +302,92 @@ a {
 	#diagram .fe-box:nth-child(5) h6{
 	background-color: #e28743;
 	}
-	
-	
+
+#heroDataBase{
+	background-image: url("../images/tos/heroDataBase.png");
+	height: 90vh;
+	width: 100%;
+	background-size: cover;
+	background-position: top 50% right 0;
+	padding: 0 80px;+
+	/* tekst on the right adjustments*/
+display: flex;
+	flex-direction: column;
+	align-items flex-start;:
+justify-content: center;
+	/* testing box shadow*/
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+
+}
+
+#heroDataBase1{
+	background-image: url("../images/tos/heroDataBase1.png");
+	height: 90vh;
+	width: 100%;
+	background-size: cover;
+	background-position: top 25% right 0;
+	padding: 0 80px;+
+	/* tekst on the right adjustments*/
+display: flex;
+	flex-direction: column;
+	align-items flex-start;:
+justify-content: center;
+	/* testing box shadow*/
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+
+}
+
+#heroDataBase2{
+	background-image: url("../images/tos/heroDataBase2.png");
+	height: 90vh;
+	width: 100%;
+	background-size: cover;
+	background-position: top 25% right 0;
+	padding: 0 80px;+
+	/* tekst on the right adjustments*/
+display: flex;
+	flex-direction: column;
+	align-items flex-start;:
+justify-content: center;
+	/* testing box shadow*/
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+
+}
+
+#heroDataBase3{
+	background-image: url("../images/tos/heroDataBase3.png");
+	height: 90vh;
+	width: 100%;
+	background-size: cover;
+	background-position: top 25% right 0;
+	padding: 0 80px;+
+	/* tekst on the right adjustments*/
+display: flex;
+	flex-direction: column;
+	align-items flex-start;:
+justify-content: center;
+	/* testing box shadow*/
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+
+}
+
+#heroDataBase4{
+	background-image: url("../images/tos/heroDataBase4.png");
+	height: 90vh;
+	width: 100%;
+	background-size: cover;
+	background-position: top 25% right 0;
+	padding: 0 80px;+
+	/* tekst on the right adjustments*/
+display: flex;
+	flex-direction: column;
+	align-items flex-start;:
+justify-content: center;
+	/* testing box shadow*/
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+
+}
+
 
 /* Code */
 

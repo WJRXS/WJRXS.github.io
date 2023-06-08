@@ -157,8 +157,8 @@ a {
 
 /* Diagram */
 
-#heroDiagram{
-	background-image: url("../images/tos/heroDiagram.png");
+#heroTosProject0{
+	background-image: url("../images/tos/heroTosProject0.png");
 	height: 90vh;
  	width: 100%; 
 	background-size: cover;
@@ -174,8 +174,72 @@ a {
 	
 }
 
-#heroDiagram1{
-	background-image: url("../images/tos/heroDiagram1.png");
+#heroTosProject1Split0{
+	background-image: url("../images/tos/project1/heroTosProject1Split0.png");
+	height: 90vh;
+	width: 100%; 
+	background-size: cover;
+	background-position: top 25% right 0;
+	padding: 0 80px;+
+	/* tekst on the right adjustments*/
+	display: flex;
+	flex-direction: column;
+	align-items flex-start;:
+	justify-content: center; 
+	/* testing box shadow*/
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
+#heroTosProject1Split1{
+	background-image: url("../images/tos/project1/heroTosProject1Split1.png");
+	height: 90vh;
+	width: 100%;
+	background-size: cover;
+	background-position: top 25% right 0;
+	padding: 0 80px;+
+	/* tekst on the right adjustments*/
+display: flex;
+	flex-direction: column;
+	align-items flex-start;:
+justify-content: center;
+	/* testing box shadow*/
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
+#heroTosProject1Split2{
+	background-image: url("../images/tos/project1/heroTosProject1Split2.png");
+	height: 90vh;
+	width: 100%;
+	background-size: cover;
+	background-position: top 25% right 0;
+	padding: 0 80px;+
+	/* tekst on the right adjustments*/
+display: flex;
+	flex-direction: column;
+	align-items flex-start;:
+justify-content: center;
+	/* testing box shadow*/
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
+#heroTosProject1Split3{
+	background-image: url("../images/tos/project1/heroTosProject1Split3.png");
+	height: 90vh;
+	width: 100%;
+	background-size: cover;
+	background-position: top 25% right 0;
+	padding: 0 80px;+
+	/* tekst on the right adjustments*/
+display: flex;
+	flex-direction: column;
+	align-items flex-start;:
+justify-content: center;
+	/* testing box shadow*/
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+}
+
+#heroTosProject2Split0{
+	background-image: url("../images/tos/project2/heroTosProject2Split0.png");
 	height: 90vh;
 	width: 100%; 
 	background-size: cover;
@@ -191,8 +255,26 @@ a {
 	
 }
 
-#heroDiagram2{
-	background-image: url("../images/tos/heroDiagram2.png");
+#heroTosProject2Split1{
+	background-image: url("../images/tos/project2/heroTosProject2Split1.png");
+	height: 90vh;
+	width: 100%;
+	background-size: cover;
+	background-position: top 25% right 0;
+	padding: 0 80px;+
+	/* tekst on the right adjustments*/
+display: flex;
+	flex-direction: column;
+	align-items flex-start;:
+justify-content: center;
+	/* testing box shadow*/
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+
+}
+
+
+#heroTosProject3{
+	background-image: url("../images/tos/heroTosProject3.png");
 	height: 90vh;
 	width: 100%; 
 	background-size: cover;
@@ -208,41 +290,7 @@ a {
 	
 }
 
-#heroDiagram3{
-	background-image: url("../images/tos/heroDiagram3.png");
-	height: 90vh;
-	width: 100%; 
-	background-size: cover;
-	background-position: top 25% right 0;
-	padding: 0 80px;+
-	/* tekst on the right adjustments*/
-	display: flex;
-	flex-direction: column;
-	align-items flex-start;:
-	justify-content: center; 
-	/* testing box shadow*/
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-	
-}
-
-#heroDiagram4{
-	background-image: url("../images/tos/heroDiagram4.png");
-	height: 90vh;
-	width: 100%; 
-	background-size: cover;
-	background-position: top 25% right 0;
-	padding: 0 80px;+
-	/* tekst on the right adjustments*/
-	display: flex;
-	flex-direction: column;
-	align-items flex-start;:
-	justify-content: center; 
-	/* testing box shadow*/
-	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-	
-}
-
-#diagram {
+#navBox {
 	display: flex;
 	align-items; center;
 	justify-content: space-between;
@@ -254,7 +302,7 @@ a {
 	
 }
 
-#diagram .fe-box {
+#navBox .fe-box {
 	/* width from 180 px --> small picture to click on*/
 	width: 180px;
 	text-align: center;
@@ -266,17 +314,17 @@ a {
 }
 
 
-#diagram .fe-box:hover{
+#navBox .fe-box:hover{
 	box-shadow: 10px 10px 54px rbga(70, 62, 221, 0.1);
 } 
 
 
-#diagram .fe-box img{
+#navBox .fe-box img{
 	width: 100%;
 	margin-bottom: 10px; 
 }
 
-#diagram .fe-box h6{
+#navBox .fe-box h6{
 	/* teveel ruimte met kleur links en rechts, daarom inline block.*/
 	display: inline-block;
 	padding: 9px 8px 6px 8px;
@@ -287,21 +335,83 @@ a {
 	}
 	
 	/* verschillende background colours voor de tekst*/
-	#diagram .fe-box:nth-child(2) h6{
+	#navBox .fe-box:nth-child(2) h6{
 	background-color: #cce7d0;
 	}
 	
-	#diagram .fe-box:nth-child(3) h6{
+	#navBox .fe-box:nth-child(3) h6{
 	background-color: #cdd4f8;
 	}
 	
-	#diagram .fe-box:nth-child(4) h6{
+	#navBox .fe-box:nth-child(4) h6{
 	background-color: #d1e8f2;
 	}
 	
-	#diagram .fe-box:nth-child(5) h6{
+	#navBox .fe-box:nth-child(5) h6{
 	background-color: #e28743;
 	}
+
+#splitBox {
+	display: flex;
+	align-items; center;
+	justify-content: space-between;
+	flex-wrap: wrap;
+	background: #E3E6F3;
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+	padding-top: 15px;
+	padding-bottom: 15px;
+
+}
+
+#splitBox .fe-box {
+	/* width from 180 px --> small picture to click on*/
+	width: 180px;
+	text-align: center;
+	padding: 25px 15px;
+	box-shadow: 20px 20px 34px rbga(0, 0, 0, 0.03);
+	border: 1px solid #088178;
+	border-radius: 4px;
+	margin: 15px 0;
+}
+
+
+#splitBox .fe-box:hover{
+	box-shadow: 10px 10px 54px rbga(70, 62, 221, 0.1);
+}
+
+
+#splitBox .fe-box img{
+	width: 100%;
+	margin-bottom: 10px;
+}
+
+#splitBox .fe-box h6{
+	/* teveel ruimte met kleur links en rechts, daarom inline block.*/
+	display: inline-block;
+	padding: 9px 8px 6px 8px;
+	line-height: 1;
+	border-radius: 4px;
+	color: 088178;
+	background-color: #fddde4;
+}
+
+/* verschillende background colours voor de tekst*/
+#splitBox .fe-box:nth-child(2) h6{
+	background-color: #cce7d0;
+}
+
+#splitBox .fe-box:nth-child(3) h6{
+	background-color: #cdd4f8;
+}
+
+#splitBox .fe-box:nth-child(4) h6{
+	background-color: #d1e8f2;
+}
+
+#splitBox .fe-box:nth-child(5) h6{
+	background-color: #e28743;
+}
+
 
 #heroDataBase{
 	background-image: url("../images/tos/heroDataBase.png");
@@ -317,7 +427,6 @@ display: flex;
 justify-content: center;
 	/* testing box shadow*/
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-
 }
 
 #heroDataBase1{

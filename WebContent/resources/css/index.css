@@ -273,8 +273,8 @@ justify-content: center;
 }
 
 
-#heroTosProject3{
-	background-image: url("../images/tos/heroTosProject3.png");
+#heroTosProject3Split0{
+	background-image: url("../images/tos/project3/heroTosProject3Split0.png");
 	height: 90vh;
 	width: 100%; 
 	background-size: cover;
@@ -288,6 +288,74 @@ justify-content: center;
 	/* testing box shadow*/
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 	
+}
+
+#heroTosProject3Split1{
+	background-image: url("../images/tos/project3/heroTosProject3Split1.png");
+	height: 90vh;
+	width: 100%;
+	background-size: cover;
+	background-position: top 25% right 0;
+	padding: 0 80px;+
+	/* tekst on the right adjustments*/
+display: flex;
+	flex-direction: column;
+	align-items flex-start;:
+justify-content: center;
+	/* testing box shadow*/
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+
+}
+
+#heroTosProject3Split2{
+	background-image: url("../images/tos/project3/heroTosProject3Split2.png");
+	height: 90vh;
+	width: 100%;
+	background-size: cover;
+	background-position: top 25% right 0;
+	padding: 0 80px;+
+	/* tekst on the right adjustments*/
+display: flex;
+	flex-direction: column;
+	align-items flex-start;:
+justify-content: center;
+	/* testing box shadow*/
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+
+}
+
+#heroTosProject3Split3{
+	background-image: url("../images/tos/project3/heroTosProject3Split3.png");
+	height: 90vh;
+	width: 100%;
+	background-size: cover;
+	background-position: top 25% right 0;
+	padding: 0 80px;+
+	/* tekst on the right adjustments*/
+display: flex;
+	flex-direction: column;
+	align-items flex-start;:
+justify-content: center;
+	/* testing box shadow*/
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+
+}
+
+#heroTosProject3{
+	background-image: url("../images/tos/heroTosProject3.png");
+	height: 90vh;
+	width: 100%;
+	background-size: cover;
+	background-position: top 25% right 0;
+	padding: 0 80px;+
+	/* tekst on the right adjustments*/
+display: flex;
+	flex-direction: column;
+	align-items flex-start;:
+justify-content: center;
+	/* testing box shadow*/
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+
 }
 
 #navBox {

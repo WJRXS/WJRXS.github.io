@@ -1,0 +1,128 @@
+@SpringBootApplication
+@EnableScheduling
+public class Application {
+
+    	public static void main(String[] args) {
+			SpringApplication.run(Application.class, args);
+	}
+
+}
+
+----------------------------------------------------------------
+
+@Component
+public class ScheduledTasks {
+
+    private final TaskService taskService;
+
+    @Autowired
+    public ScheduledTasks(TaskService taskService) {
+        this.taskService = taskService;
+    }
+
+    /**
+     * Execute Task service every 5 seconds.
+     * Dummy player data will be used to assign players to matches.
+     * #TODO create dummy event data.
+     */
+    @Scheduled(fixedRate = 5_000) //(fixedRate = 300_000)
+    public void reportCurrentTime() {
+        taskService.task();
+    }
+}
+
+----------------------------------------------------------------
+
+@Service
+public class TaskService {
+    private final EventActivation eventActivation;
+    private final MatchRoundService matchRoundService;
+
+    @Autowired
+    public TaskService(EventActivation eventActivation, MatchRoundService matchmaker) {
+        this.eventActivation = eventActivation;
+        this.matchRoundService = matchmaker;
+    }
+
+    private static final SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm:ss");
+
+    /**
+     * At this time only dummy data of one single Event is pushed into the matchmaking code.
+     * This is done in the class: MatchRoundService.
+     * It tests different sets of player data that are assigned to matches.
+     * ---------------------------------------------------------------------
+     * #TODO insert dummy event data.
+     * 1) any [EVENT] is about to start  // Check for events that start in the next hour.
+     * --YES?---> has to be activated: Matchrounds for the event have to be scheduled.
+     * 2) any [MATCHROUND] is about to start: create [MATCH] & [BENCH]
+     */
+    public void task() {
+        System.out.println("Clock: " + dateFormat.format(new Date()));
+
+        eventActivationTask();
+        matchMakerTask();
+
+    }
+
+    /**
+     * Find and Activate events
+     */
+    private void eventActivationTask() {
+
+        List<Long> eventIdList = new ArrayList<>();
+
+        // Find Events.
+        try {
+            eventIdList = findEvents();
+        } catch (Exception exception) {
+        }
+
+        // Activate Events. Dummy method
+        if (!eventIdList.isEmpty()) {
+            eventActivation.activateEventIdList(eventIdList);
+        }
+    }
+
+    /**
+     *
+     */
+    private void matchMakerTask() {
+        List<Long> matchRoundList = new ArrayList<>();
+
+        // Find matchRounds.
+        try {
+            matchRoundList = findMatchRounds();
+        } catch (Exception exception) {
+        }
+
+        /**
+         * create Matches for the MatchRound.
+         * Actual testing continues down this method.
+          */
+        if (!matchRoundList.isEmpty()) {
+            matchRoundService.activateMatchRound(matchRoundList);
+        }
+    }
+
+
+    /**
+     * checks events in the tos data base and returns a list of eventId of all the events that are about to start.
+     * #TODO @GETMAPPING
+     */
+    private List<Long> findEvents() {
+        List<Long> dummyEventIdList = List.of(1L);
+        return dummyEventIdList;
+    }
+
+
+    /**
+     * checks matchrounds in the tos data base and returns a list of matchroundId of all the matchRounds that are about to start.
+     * #TODO @GETMAPPING
+     */
+    private List<Long> findMatchRounds() {
+        List<Long> dummyMatchRoundList = List.of(1L);
+        return dummyMatchRoundList;
+    }
+
+
+}

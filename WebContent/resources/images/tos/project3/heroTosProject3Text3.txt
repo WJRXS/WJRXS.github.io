@@ -1,0 +1,367 @@
+@Service
+public class AssignPlayersToCourts {
+
+    private final LeftOverMatchCreator leftOverMatchCreator;
+    private final TypeOfMatchListCreator typeOfMatchListCreator;
+    private final DoubleMatchCreator doubleMatchCreator;
+
+
+    @Autowired
+    public AssignPlayersToCourts(LeftOverMatchCreator leftOverMatchCreator,
+                                TypeOfMatchListCreator typeOfMatchListCreator,
+                                 DoubleMatchCreator doubleMatchCreator                                ) {
+        this.leftOverMatchCreator = leftOverMatchCreator;
+        this.typeOfMatchListCreator = typeOfMatchListCreator;
+        this.doubleMatchCreator = doubleMatchCreator;
+
+    }
+
+
+    /**
+     *2A
+     * Assign the players to
+     * - a specific court.
+     * - and a position (and thus partner and opponent(s) )
+     * This list determines the matches in a round in an event.
+     * convert (playerlist) & (playerBinList) --into-> (assignedPlayerList)
+     */
+
+    public List<AssignedPlayer> getAssignedPlayersToCourtsList(Event event, List<Court> courtList, List<Player> playerList, List<Player> playerBinList) {
+        List<AssignedPlayer> assignedPlayersToCourtsList = new ArrayList<AssignedPlayer>();
+
+        /**
+         * #TODO implement different tostypes, like all singles, or all of another specific match type.
+         * EVENT: Type of TOS setting
+         */
+        TosType tosType = event.getTosType();
+        //if (tosType == TosType.DOUBLE) {}
+
+        /** Action 1:
+         * Check if a leftover match is needed.
+         */
+        leftOverMatchCreator.createLeftOverMatch(event, playerList, assignedPlayersToCourtsList, courtList, playerBinList);
+
+
+        /**
+         * Action 2:
+         * Load event settings: get the Mix % from event
+         * determine: the number of Mix Doubles, and thus, the number Male doubles and Female Doubles.
+         * Make a list of the MatchTypes.
+         */
+        List<TypeOfMatch> typeOfMatchList = typeOfMatchListCreator.createTypeOfMatchList(event, playerList);
+
+        /**
+         * Action 3:
+         * use the list of matches to create the double matches.
+         */
+        doubleMatchCreator.createDoubleMatch(assignedPlayersToCourtsList, typeOfMatchList, courtList, playerList, event);
+
+        /**
+         * Action 4:
+         * return the assigned player list.
+         */
+        return assignedPlayersToCourtsList;
+        }
+
+}
+
+
+------------------------------------------------------------------------
+
+@Service
+public class TypeOfMatchListCreator {
+
+    /**
+     * returns a list of double matches. (Mix MMFF, Male MMMM or Female FFFF)
+     * taken into account is the event setting: mixVersusStraight.
+     * does the administrator want many mix doubles, average or only a few mix double?
+     * @param event
+     * @param playerList
+     * @return
+     */
+    public List<TypeOfMatch> createTypeOfMatchList(Event event,
+                                                    List<Player> playerList) {
+
+        List<TypeOfMatch> typeOfMatchList = new ArrayList<>();
+
+        int nrOfPlayers = playerList.size();
+        int nrOfDoubleMatches = (int) (nrOfPlayers / 4); //#TODO check for rounding problems
+        int mixVersusStraight = event.getMixVersusStraight();
+
+        int maleCounter = 0;
+        int femaleCounter = 0;
+
+        for(Player p: playerList) {
+            if (p.isMaleSex()) {
+                maleCounter++;
+            } else {
+                femaleCounter++;
+            }
+        }
+
+        int maximumMixMatches;
+        int minimumMixMatches;
+        // MORE MALES
+        if (maleCounter >= femaleCounter & femaleCounter >= 2) {
+            maximumMixMatches = femaleCounter/2;
+
+            if (femaleCounter%4 == 0) {
+                minimumMixMatches = 0; }
+            else if (femaleCounter%4 == 2) {
+                minimumMixMatches = 1;
+            } else {
+                // throw exception
+                minimumMixMatches = 0;
+            }
+
+            double delta = (maximumMixMatches - minimumMixMatches) * (mixVersusStraight / 100);
+            int roundedDelta = (int) (delta +0.5);
+
+            int nrOfMixMatches = minimumMixMatches + roundedDelta;
+
+            for (int i = 0; i < nrOfDoubleMatches; i++) {
+                if (nrOfMixMatches > 0) {
+                    typeOfMatchList.add(TypeOfMatch.DOUBLE_MIX);
+                    nrOfMixMatches--;
+                }
+                else if (nrOfMixMatches ==0) {
+                    typeOfMatchList.add(TypeOfMatch.DOUBLE_MALE);
+                }
+            }
+        }
+
+        // MORE FEMALES
+        else if (femaleCounter >= maleCounter & maleCounter >= 2) {
+            maximumMixMatches = maleCounter / 2;
+
+            if (maleCounter%4 == 0) {
+                minimumMixMatches = 0; }
+            else if (maleCounter%4 == 2) {
+                minimumMixMatches = 1;
+            } else {
+                // throw exception
+                minimumMixMatches = 0;
+            }
+
+            double delta = (maximumMixMatches - minimumMixMatches) * (mixVersusStraight / 100);
+            int roundedDelta = (int) (delta +0.5);
+
+            int nrOfMixMatches = minimumMixMatches + roundedDelta;
+
+            for (int i = 0; i < nrOfDoubleMatches; i++) {
+                if (nrOfMixMatches > 0) {
+                    typeOfMatchList.add(TypeOfMatch.DOUBLE_MIX);
+                    nrOfMixMatches--;
+                }
+                else if (nrOfMixMatches ==0) {
+                    typeOfMatchList.add(TypeOfMatch.DOUBLE_FEMALE);
+                }
+            }
+
+        // ONLY FEMALES
+        } else if (maleCounter == 0) {
+            for (int i = 0; i < nrOfDoubleMatches; i++) {
+                typeOfMatchList.add(TypeOfMatch.DOUBLE_FEMALE);
+            }
+
+        // ONLY MALES
+        } else if (femaleCounter == 0) {
+            for (int i = 0; i < nrOfDoubleMatches; i++) {
+                typeOfMatchList.add(TypeOfMatch.DOUBLE_MALE);
+            }
+        }
+
+        return typeOfMatchList;
+    }
+}
+
+----------------------------------------------------------------------
+
+@Service
+public class DoubleMatchCreator {
+
+
+    private final DoubleStraightMatch doubleStraightMatch;
+    private final DoubleMixMatch doubleMixMatch;
+
+    @Autowired
+    public DoubleMatchCreator(DoubleStraightMatch doubleStraightMatch, DoubleMixMatch doubleMixMatch) {
+        this.doubleStraightMatch = doubleStraightMatch;
+        this.doubleMixMatch = doubleMixMatch;
+    }
+
+    public void createDoubleMatch(List<AssignedPlayer> assignedPlayersToCourtsList,
+                                  List<TypeOfMatch> typeOfMatchList,
+                                  List<Court> courtList,
+                                  List<Player> playerList,
+                                  Event event
+                                  ) {
+
+        int numberOfMatches = typeOfMatchList.size();
+
+        for (int i = 0; i < numberOfMatches; i++) {
+            TypeOfMatch typeOfMatch=  findPlayer1(playerList, courtList, assignedPlayersToCourtsList, typeOfMatchList);
+            boolean isMatchTypeLast = isMatchTypeLast(assignedPlayersToCourtsList, typeOfMatchList);
+            createSpecificDouble(playerList, assignedPlayersToCourtsList, typeOfMatch, isMatchTypeLast, event);
+        }
+    }
+
+    /**
+     * FIND Player1
+     */
+    private TypeOfMatch findPlayer1(List<Player> playerList, List<Court> courtList, List<AssignedPlayer> assignedPlayersToCourtsList, List<TypeOfMatch> typeOfMatchList) {
+
+        Player player1 = playerList.get(0);
+        Long player1Id = player1.getPlayerId();
+        boolean player1MaleSex= player1.isMaleSex();
+        int position1 = 1;
+
+        List<TypeOfMatch> typeOfMatchPreference = player1.getTypeOfMatchPreference();
+        TypeOfMatch typeOfMatch = getTypeOfMatch(typeOfMatchList, typeOfMatchPreference);
+
+        List<TypeOfCourt> courtPreference = player1.getCourtPreference();
+        Long courtId = findCourtId(courtPreference, courtList);
+
+                AssignedPlayer doublePlayer1 = new AssignedPlayer(
+                        player1Id,
+                        player1MaleSex,
+                        courtId,
+                        position1,
+                        player1.getRoll(),
+                        typeOfMatch
+                );
+
+                assignedPlayersToCourtsList.add(doublePlayer1);
+
+                playerList.remove(player1);
+
+                return typeOfMatch;
+   }
+
+    /**
+     * calls the specific class needed to create the double
+     * @param typeOfMatch
+     */
+   private boolean createSpecificDouble(List<Player> playerList,
+                                     List<AssignedPlayer> assignedPlayersToCourtsList,
+                                     TypeOfMatch typeOfMatch,
+                                     boolean isMatchTypeLast,
+                                        Event event) {
+       boolean b = false;
+        if (typeOfMatch == TypeOfMatch.DOUBLE_MALE | typeOfMatch == TypeOfMatch.DOUBLE_FEMALE) {
+            b = doubleStraightMatch.createDoubleStraightMatch(playerList, assignedPlayersToCourtsList, isMatchTypeLast, event);
+        }  else if (typeOfMatch == TypeOfMatch.DOUBLE_MIX) {
+            b = doubleMixMatch.createDoubleMixMatch(playerList, assignedPlayersToCourtsList, isMatchTypeLast, event);
+        }
+                else {
+                    //throw exception
+        }
+                return b;
+   }
+
+    /**
+     * Util
+     * determine what kind of Match player1 will be assigned to. check his preference.
+     * @param typeOfMatchList
+     * @param typeOfMatchPreference
+     * @return
+     */
+    private TypeOfMatch getTypeOfMatch(List<TypeOfMatch> typeOfMatchList, List<TypeOfMatch> typeOfMatchPreference) {
+
+
+        TypeOfMatch typeOfMatch = typeOfMatchList.get(0);
+
+        for (TypeOfMatch type: typeOfMatchPreference) {
+            if (typeOfMatchList.contains(type)) {
+                typeOfMatchList.remove(type);
+                return type;
+            } else { // #TODO redundant return, might just leave the bottom one.
+               typeOfMatchList.remove(0);
+                return typeOfMatch;
+            }
+        }
+        return typeOfMatch;
+    }
+
+    /**
+     * Util
+     * find a prefered court
+     */
+    private Long findCourtId(List<TypeOfCourt> courtPreference, List<Court> courtList) {
+        int sizeCourtList = courtList.size();
+        outerLoop: for(TypeOfCourt typeOfCourt: courtPreference) {
+            innerLoop: for(int i = 0; i<sizeCourtList; i++) {
+                if(typeOfCourt == courtList.get(i).getTypeOfCourt())  {
+                    // MATCH!!!
+                    Long courtId = courtList.get(i).getCourtId();
+                    courtList.remove(i);
+                    return courtId;
+                }
+            }
+        }
+        // NO MATCH, something might have gone wrong, just take the first court.
+        return courtList.get(0).getCourtId();
+    }
+
+    /**
+     * Util
+     * find out if the possible player configurations are limited because
+     * - the MatchType is the last of its type,
+     * - there are only a few players remaining in the player list.
+     *
+     * When this is the case, extra attention must be directly at the strength balance of the match.
+     */
+    private boolean isMatchTypeLast(List<AssignedPlayer> assignedPlayersToCourtsList, List<TypeOfMatch> typeOfMatchList) {
+        int index = assignedPlayersToCourtsList.size();
+        TypeOfMatch typeOfMatch = assignedPlayersToCourtsList.get(index).getTypeOfMatch();
+
+        int maleCounter = 0;
+        int femaleCounter = 0;
+        int mixCounter = 0;
+
+        for (TypeOfMatch type: typeOfMatchList) {
+            if (type == TypeOfMatch.DOUBLE_MALE) { maleCounter++;}
+            else if (type == TypeOfMatch.DOUBLE_FEMALE) {femaleCounter++;}
+                else if (type == TypeOfMatch.DOUBLE_MIX) {mixCounter++; }
+            else {
+                // throw exception
+            }
+        }
+
+        if (    maleCounter >=2 &&
+                femaleCounter >= 2 &&
+                mixCounter >= 2) {
+            return false;
+        } else if (
+                (typeOfMatch == TypeOfMatch.DOUBLE_MALE) &&
+                (maleCounter >= 1 && mixCounter >= 1)
+        ) {
+            return false;
+        } else if (
+                (typeOfMatch == TypeOfMatch.DOUBLE_FEMALE) &&
+                        (femaleCounter >= 1 && mixCounter >= 1)
+        ) {
+            return false;
+        } else if (
+                (typeOfMatch == TypeOfMatch.DOUBLE_MIX) &&
+                        (maleCounter >= 1 && femaleCounter >= 1)
+        ) {
+            return false;
+        } else if (maleCounter == 1 && mixCounter ==0) {
+            return true;
+        } else if (femaleCounter == 1 && mixCounter == 0) {
+            return true;
+        } else if (mixCounter == 1 && (maleCounter ==0 || femaleCounter == 0)) {
+            return true;
+        } else {
+            return true;
+                    // throw exception
+        }
+ }
+
+
+
+}
+
+
+

@@ -58,9 +58,7 @@ a {
 
 
 /* Header Start */
-.portraitlogo {
-	width: 108px; 	
-	height: 110px;	
+.portrait logo {
 }
 
 
@@ -338,11 +336,12 @@ display: flex;
 justify-content: center;
 	/* testing box shadow*/
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
-
 }
 
-#heroTosProject3{
-	background-image: url("../images/tos/heroTosProject3.png");
+
+
+#heroTosProject3Split4A{
+	background-image: url("../images/tos/project3/heroTosProject3Split4A.png");
 	height: 90vh;
 	width: 100%;
 	background-size: cover;
@@ -355,7 +354,22 @@ display: flex;
 justify-content: center;
 	/* testing box shadow*/
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
+}
 
+#heroTosProject3Split4B{
+	background-image: url("../images/tos/project3/heroTosProject3Split4B.png");
+	height: 90vh;
+	width: 100%;
+	background-size: cover;
+	background-position: top 25% right 0;
+	padding: 0 80px;+
+	/* tekst on the right adjustments*/
+display: flex;
+	flex-direction: column;
+	align-items flex-start;:
+justify-content: center;
+	/* testing box shadow*/
+	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 }
 
 #navBox {

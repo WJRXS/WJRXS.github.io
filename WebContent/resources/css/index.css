@@ -156,7 +156,7 @@ a {
 /* Diagram */
 
 #heroTosProject0{
-	background-image: url("../images/tos/heroTosProject0B.png");
+	background-image: url("../images/tos/project0/heroTosProject0Split0.png");
 	height: 90vh;
  	width: 100%; 
 	background-size: cover;
@@ -196,10 +196,10 @@ a {
 	background-position: top 25% right 0;
 	padding: 0 80px;+
 	/* tekst on the right adjustments*/
-display: flex;
+	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-justify-content: center;
+	justify-content: center;
 	/* testing box shadow*/
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 }
@@ -214,8 +214,8 @@ justify-content: center;
 	/* tekst on the right adjustments*/
 	display: flex;
 	flex-direction: column;
-	align-items: flex-start;:
-justify-content: center;
+	align-items: flex-start;
+	justify-content: center;
 	/* testing box shadow*/
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 }
@@ -264,7 +264,7 @@ justify-content: center;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-justify-content: center;
+	justify-content: center;
 	/* testing box shadow*/
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 }
@@ -328,10 +328,10 @@ justify-content: center;
 	background-position: top 25% right 0;
 	padding: 0 80px;+
 	/* tekst on the right adjustments*/
-display: flex;
+	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-justify-content: center;
+	justify-content: center;
 	/* testing box shadow*/
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 }
@@ -346,10 +346,10 @@ justify-content: center;
 	background-position: top 25% right 0;
 	padding: 0 80px;
 	/* tekst on the right adjustments*/
-display: flex;
+	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-justify-content: center;
+	justify-content: center;
 	/* testing box shadow*/
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 }
@@ -365,7 +365,7 @@ justify-content: center;
 	display: flex;
 	flex-direction: column;
 	align-items: flex-start;
-justify-content: center;
+	justify-content: center;
 	/* testing box shadow*/
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 }
@@ -532,7 +532,7 @@ justify-content: center;
 	width: 100%;
 	background-size: cover;
 	background-position: top 25% right 0;
-	padding: 0 80px;+
+	padding: 0 80px;
 	/* tekst on the right adjustments*/
 	display: flex;
 	flex-direction: column;

@@ -93,14 +93,14 @@ a {
 	text-decoration: none;
 	font-size: 16px;
 	font-weight: 600;
-	color: 1a1a1a; 
+	color: #1a1a1a;
 	transition: 0.3s ease;
 }
 
 /* hover gives a color */
 #navBar li a:hover,
 #navBar li a.active{
-	color: 088178;
+	color: #088178;
 }
 
 /* menu selection gives an underscore, you can see in what menu page you are */
@@ -109,7 +109,7 @@ a {
 	content: "";
 	width: 30%;
 	height: 2px;
-	background: 088178;
+	background: #088178;
 	position: absolute;
 	bottom: -4px;
 	left: 20px;
@@ -126,7 +126,7 @@ a {
 	/* tekst on the right adjustments*/
 	display: flex;
 	flex-direction: column;
-	align-items flex-start;:
+	align-items: flex-start;
 	justify-content: center; 
 }
 
@@ -146,7 +146,7 @@ a {
 	background-color: transparent;
 	color: #088178;
 	border: 0;
-	padding: 14px 80px 14px 65;
+	padding: 14px 80px 14px 65px;
 	background-repeat: no-repeat;
 	cursor: pointer;
 	font-weight: 700;
@@ -156,11 +156,11 @@ a {
 /* Diagram */
 
 #heroTosProject0{
-	background-image: url("../images/tos/heroTosProject0.png");
+	background-image: url("../images/tos/heroTosProject0B.png");
 	height: 90vh;
  	width: 100%; 
 	background-size: cover;
-	background-position: top 50% right 0;
+	background-position: top 25% right 0;
 	padding: 0 80px;
 	/* tekst on the right adjustments*/
 	display: flex;
@@ -330,7 +330,7 @@ justify-content: center;
 	/* tekst on the right adjustments*/
 display: flex;
 	flex-direction: column;
-	align-items flex-start;:
+	align-items: flex-start;
 justify-content: center;
 	/* testing box shadow*/
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
@@ -344,11 +344,11 @@ justify-content: center;
 	width: 100%;
 	background-size: cover;
 	background-position: top 25% right 0;
-	padding: 0 80px;+
+	padding: 0 80px;
 	/* tekst on the right adjustments*/
 display: flex;
 	flex-direction: column;
-	align-items flex-start;:
+	align-items: flex-start;
 justify-content: center;
 	/* testing box shadow*/
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
@@ -360,11 +360,11 @@ justify-content: center;
 	width: 100%;
 	background-size: cover;
 	background-position: top 25% right 0;
-	padding: 0 80px;+
+	padding: 0 80px;
 	/* tekst on the right adjustments*/
-display: flex;
+	display: flex;
 	flex-direction: column;
-	align-items flex-start;:
+	align-items: flex-start;
 justify-content: center;
 	/* testing box shadow*/
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
@@ -372,7 +372,7 @@ justify-content: center;
 
 #navBox {
 	display: flex;
-	align-items; center;
+	align-items: center;
 	justify-content: space-between;
 	flex-wrap: wrap;
 	background: #E3E6F3;
@@ -387,7 +387,7 @@ justify-content: center;
 	width: 180px;
 	text-align: center;
 	padding: 25px 15px;
-	box-shadow: 20px 20px 34px rbga(0, 0, 0, 0.03);
+	box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
 	border: 1px solid #088178;
 	border-radius: 4px; 
 	margin: 15px 0;
@@ -395,7 +395,7 @@ justify-content: center;
 
 
 #navBox .fe-box:hover{
-	box-shadow: 10px 10px 54px rbga(70, 62, 221, 0.1);
+	box-shadow: 10px 10px 54px rgba(70, 62, 221, 0.1);
 } 
 
 
@@ -410,7 +410,7 @@ justify-content: center;
 	padding: 9px 8px 6px 8px;
 	line-height: 1;
 	border-radius: 4px;
-	color: 088178;
+	color: #088178;
 	background-color: #fddde4;
 	}
 	
@@ -433,7 +433,7 @@ justify-content: center;
 
 #splitBox {
 	display: flex;
-	align-items; center;
+	align-items: center;
 	justify-content: space-between;
 	flex-wrap: wrap;
 	background: #E3E6F3;
@@ -448,7 +448,7 @@ justify-content: center;
 	width: 180px;
 	text-align: center;
 	padding: 25px 15px;
-	box-shadow: 20px 20px 34px rbga(0, 0, 0, 0.03);
+	box-shadow: 20px 20px 34px rgba(0, 0, 0, 0.03);
 	border: 1px solid #088178;
 	border-radius: 4px;
 	margin: 15px 0;
@@ -456,7 +456,7 @@ justify-content: center;
 
 
 #splitBox .fe-box:hover{
-	box-shadow: 10px 10px 54px rbga(70, 62, 221, 0.1);
+	box-shadow: 10px 10px 54px rgba(70, 62, 221, 0.1);
 }
 
 
@@ -471,7 +471,7 @@ justify-content: center;
 	padding: 9px 8px 6px 8px;
 	line-height: 1;
 	border-radius: 4px;
-	color: 088178;
+	color: #088178;
 	background-color: #fddde4;
 }
 
@@ -501,10 +501,10 @@ justify-content: center;
 	background-position: top 50% right 0;
 	padding: 0 80px;+
 	/* tekst on the right adjustments*/
-display: flex;
+	display: flex;
 	flex-direction: column;
-	align-items flex-start;:
-justify-content: center;
+	align-items: flex-start;
+	justify-content: center;
 	/* testing box shadow*/
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 }
@@ -517,10 +517,10 @@ justify-content: center;
 	background-position: top 25% right 0;
 	padding: 0 80px;+
 	/* tekst on the right adjustments*/
-display: flex;
+	display: flex;
 	flex-direction: column;
-	align-items flex-start;:
-justify-content: center;
+	align-items: flex-start;
+	justify-content: center;
 	/* testing box shadow*/
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 
@@ -534,10 +534,10 @@ justify-content: center;
 	background-position: top 25% right 0;
 	padding: 0 80px;+
 	/* tekst on the right adjustments*/
-display: flex;
+	display: flex;
 	flex-direction: column;
-	align-items flex-start;:
-justify-content: center;
+	align-items: flex-start;
+	justify-content: center;
 	/* testing box shadow*/
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 
@@ -549,12 +549,12 @@ justify-content: center;
 	width: 100%;
 	background-size: cover;
 	background-position: top 25% right 0;
-	padding: 0 80px;+
+	padding: 0 80px;
 	/* tekst on the right adjustments*/
-display: flex;
+	display: flex;
 	flex-direction: column;
-	align-items flex-start;:
-justify-content: center;
+	align-items: flex-start;
+	justify-content: center;
 	/* testing box shadow*/
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 
@@ -566,12 +566,12 @@ justify-content: center;
 	width: 100%;
 	background-size: cover;
 	background-position: top 25% right 0;
-	padding: 0 80px;+
+	padding: 0 80px;
 	/* tekst on the right adjustments*/
-display: flex;
+	display: flex;
 	flex-direction: column;
-	align-items flex-start;:
-justify-content: center;
+	align-items: flex-start;
+	justify-content: center;
 	/* testing box shadow*/
 	box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
 
